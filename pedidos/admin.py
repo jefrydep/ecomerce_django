@@ -7,6 +7,6 @@ from .models import Pedido, LineaPedido
 
 
 
-admin.site.register()
+admin.site.register(Pedido)
 
-admin.site.register()
+admin.site.register(LineaPedido)

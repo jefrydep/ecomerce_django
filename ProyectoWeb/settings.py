@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'autenticacion',
     'crispy_forms',
     'pedidos',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
@@ -65,8 +66,9 @@ ROOT_URLCONF = 'ProyectoWeb.urls'
 
 TEMPLATES = [
     {
+
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
