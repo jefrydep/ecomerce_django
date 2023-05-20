@@ -1,0 +1,63 @@
+
+{% extends "ProyectoWebApp/base.html" %}
+
+{% load static %}
+
+{% block contenido %}
+
+    {% for post in posts %}
+
+    <section class="page-section clearfix">
+        <div class="container">
+          <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{post.imagen.url}}" alt="" style="width: 550;"> <!-- sustituimos el css por el style para achicar la imagen en servicios-->
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+              <h2 class="section-heading mb-4" >
+                <span style="color: cyan;" class="section-heading-upper">{{post.titulo}}</span>
+                <span class="section-heading-upper">{{post.contenido}}</span>
+              </h2>
+                <div style="text-align: right; font-size: 0.8em;">
+
+                    <small>Autor: {{post.autor}}, </small>
+                    <!--<p><small>{{post.categoria}}</small></p>-->
+                    <small>Creado el: {{post.created}}</small>
+
+                </div>
+              
+              
+             
+            </div>
+          </div>
+        </div>
+      </section>
+
+  
+
+   {% endfor %}
+   
+    <section>
+        <div 
+        style="width: 65%; 
+        background-color: rgba(18, 82, 140 , 0.8);
+        margin: auto;
+        text-align: center;
+        color: white;
+        font-size: small;
+        ">
+            Categorias: 
+            {% for post in posts %}
+                <!-- para recorrer las categorias de abajo en el Queryset y el for para recorrer solo categorias-->
+                {% for categoria in post.categoria.all %}
+
+                    {{categoria.nombre}} &nbsp;&nbsp;&nbsp;
+
+                {% endfor %}
+
+            {% endfor %}
+
+        </div>
+    </section>
+
+{% endblock %}
+
+
